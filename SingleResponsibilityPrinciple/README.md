@@ -100,7 +100,7 @@ Podemos, para verificar isso, elencar as responsabilidades da classe do código:
  2. Fazer uma consulta no banco de dados pelos e-mails dos clientes
  3. Enviar e-mail para os clientes
 
-Sendo assim, podemos afirmar que existe, no código acima, uma classe com três responsabilidades distintas. Dessa forma, pode-se concluir que esse projeto não segue o SRP. Como poderíamos, então, adaptar esse projeto para seguir o padrão desejado?
+Sendo assim, podemos afirmar que existe, no código acima, uma classe com três responsabilidades distintas. Dessa forma, pode-se concluir que esse projeto não respeita o SRP. Como poderíamos, então, adaptar esse projeto para seguir o padrão desejado?
 
 ## Quebrar responsabilidades em classes distintas
 
@@ -211,3 +211,5 @@ public class SRP {
 ```
 
 Dessa forma, agora o projeto está organizado em quatro classes, sendo que cada uma delas são responsáveis por partes distintas do projeto. Quando uma atualização precisar ser feita na implementação do método de envio de e-mail, por exemplo, pode-se dizer que foram anuladas as chances de que isso afete outras partes do projeto. 
+
+Conclue-se, portanto, que esse novo projeto respeita o SRP.

@@ -113,7 +113,7 @@ Começando pela primeira responsabilidade, é possível criar uma classe separad
 ```java
 public class GetUserData {
 
-    static Scanner in = new Scanner(System.in);
+    private static Scanner in = new Scanner(System.in);
 
     public static String readTitulo() {
         System.out.print("Título: ");
@@ -137,8 +137,8 @@ A segunda responsabilidade diz respeito a fazer uma consulta em um banco de dado
 ```java
 public class Database {
 
-    static Connection conn = DriverManager.getConnection("...");
-    static List<String> emailList;
+    private static Connection conn = DriverManager.getConnection("...");
+    private static List<String> emailList;
 
     // faz a query no banco de dados para buscar os emails de todos os clientes
     public static void doRefreshQuery() {
@@ -165,8 +165,8 @@ Para a terceira responsabilidade do projeto, é necessário enviar e-mail para a
 ```java
 public class Email {
 
-    static final String from = "no-reply@system.com";
-    static final String host = "localhost";
+    private static final String from = "no-reply@system.com";
+    private static final String host = "localhost";
 
     public static boolean sendEmail(List<String> emailList, String subject, String text) {
 

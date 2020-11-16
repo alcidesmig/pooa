@@ -210,6 +210,6 @@ public class SRP {
 }
 ```
 
-Dessa forma, agora o projeto está organizado em quatro classes, sendo que cada uma delas são responsáveis por partes distintas do projeto. Quando uma atualização precisar ser feita na implementação do método de envio de e-mail, por exemplo, pode-se dizer que foram anuladas as chances de que isso afete outras partes do projeto. 
+Dessa forma, agora o projeto está organizado em quatro classes, sendo que cada uma delas são responsáveis por partes distintas do projeto. Quando uma atualização precisar ser feita na implementação do método de envio de e-mail, por exemplo, pode-se buscar pelo módulo (classe) responsável pela tarefa e atualizá-lo de forma a minimizar as alterações nos módulos restantes. Têm-se, então, módulos separados de acordo com suas responsabilidades/tarefas.
 
 Conclue-se, portanto, que esse novo projeto respeita o SRP.

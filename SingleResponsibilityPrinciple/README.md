@@ -134,7 +134,7 @@ public class GetUserData {
 
 A segunda responsabilidade diz respeito a fazer uma consulta em um banco de dados, afim de resgatar os e-mails dos clientes existentes. Pode-se, então, criar uma classe para tratar dos assuntos relacionados ao banco de dados:
 
-```json
+```java
 public class Database {
 
     static Connection conn = DriverManager.getConnection("...");

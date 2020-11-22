@@ -96,9 +96,9 @@ public class Email {
 Pode-se perceber que o código tem um objetivo principal: enviar um e-mail para uma lista de pessoas. Entretanto, será que ele segue o SRP?
 Podemos, para verificar isso, elencar as responsabilidades da classe do código:
 
- 1. Receber dados do usuário (título e texto do e-mail)
- 2. Fazer uma consulta no banco de dados pelos e-mails dos clientes
- 3. Enviar e-mail para os clientes
+ 1. Receber dados do usuário (título e texto do e-mail);
+ 2. Fazer uma consulta no banco de dados pelos e-mails dos clientes;
+ 3. Enviar e-mail para os clientes.
 
 Sendo assim, podemos afirmar que existe, no código acima, uma classe com três responsabilidades distintas. Dessa forma, pode-se concluir que esse projeto não respeita o SRP. Como poderíamos, então, adaptar esse projeto para seguir o padrão desejado?
 

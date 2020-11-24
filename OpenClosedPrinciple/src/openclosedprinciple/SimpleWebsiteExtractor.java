@@ -36,9 +36,7 @@ public class SimpleWebsiteExtractor extends Extractor {
             for (HTMLField field : fields) {
                 List<String> currentField = new ArrayList<>();
                 Document doc = (Document) connection.get();
-//                System.out.println(doc.toString());
                 Elements current = doc.select(field.getDocSelect());
-//                System.out.println(current.toString());
                 if (field.getFamilyTagName() == null) {
                     current.forEach(element -> {
                         if (field.getAttr().equals("text")) {

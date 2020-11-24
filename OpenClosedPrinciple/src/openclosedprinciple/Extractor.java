@@ -16,5 +16,5 @@ public abstract class Extractor {
         this.connection = Jsoup.connect(this.website);
     }
     
-    public abstract List<List<String>> scrapy();
+    public abstract <T> List<T> scrapy();
 }

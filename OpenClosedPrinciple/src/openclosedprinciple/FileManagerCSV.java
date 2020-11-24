@@ -44,4 +44,9 @@ public class FileManagerCSV extends OutputManager {
             Logger.getLogger(FileManagerCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public <T> List<T> process(List<T> data) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
 }

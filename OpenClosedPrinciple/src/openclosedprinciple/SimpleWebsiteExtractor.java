@@ -30,12 +30,15 @@ public class SimpleWebsiteExtractor extends Extractor {
     * Examples: 
     *   1. object.addField("Title", "h2.title", null, null, "text");
     *   2. object.addField("Link", "h5", "a", "link-class", "href");
-     */
+    * */
     public void addField(String fieldName, String docSelect, String familyTagName, String familyClassName, String attr) {
-        if(attr == null) attr = "text";
+        if (attr == null) {
+            attr = "text";
+        }
         fields.add(new HTMLField(fieldName, docSelect, familyTagName, familyClassName, attr));
     }
 
+    /*  List fields that can be extracted from website */
     public List<String> listFieldsNames() {
         List<String> fieldNames = new ArrayList<>();
         for (HTMLField field : fields) {

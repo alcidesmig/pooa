@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package openclosedprinciple;
 
-/**
- *
- * @author alcides
- */
-public class Extractor {
+import java.util.ArrayList;
+import java.util.List;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+
+public abstract class Extractor {
+
+    final String website;
+    Connection connection;
+
+
+    public Extractor(String website) {
+        this.website = website;
+        this.connection = Jsoup.connect(this.website);
+    }
     
+    public abstract List<List<String>> scrapy();
 }

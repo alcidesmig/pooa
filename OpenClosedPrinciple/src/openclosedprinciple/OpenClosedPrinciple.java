@@ -10,6 +10,7 @@ public class OpenClosedPrinciple {
         uol.addField("Titulo", "h2.titulo", null, null, "text");
         uol.addField("Link", "h2.titulo", "a", null, "href");
         FileManagerCSV output = new FileManagerCSV("test.csv", uol.scrapy(), uol.listFieldsNames(), ';');
+        System.out.println(output.teste());
         output.write();
     }
 }

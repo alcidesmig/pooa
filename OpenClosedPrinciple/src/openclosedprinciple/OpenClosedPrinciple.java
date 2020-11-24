@@ -6,10 +6,14 @@ import java.util.List;
 public class OpenClosedPrinciple {
 
     public static void main(String[] args) throws IOException {
+        getUolData();
+    }
+
+    public static void getUolData() throws IOException {
         SimpleWebsiteExtractor uol = new SimpleWebsiteExtractor("https://www.uol.com.br/");
         uol.addField("Titulo", "h2.titulo", null, null, "text");
         uol.addField("Link", "h2.titulo", "a", null, "href");
-        FileManagerCSV output = new FileManagerCSV("test.csv", uol.scrapy(), uol.listFieldsNames(), ';');
+        FileManagerCSV output = new FileManagerCSV("uol.csv", uol.scrapy(), uol.listFieldsNames(), ';');
         output.write();
     }
 }

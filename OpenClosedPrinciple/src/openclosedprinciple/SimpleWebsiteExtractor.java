@@ -17,7 +17,22 @@ public class SimpleWebsiteExtractor extends Extractor {
         super(website);
     }
 
+    /* 
+    * Add field to be extracted from website
+    * - fieldName: the name to the field (to list in listFieldNames())
+    * - docSelect: the component + css class to be the starting point of the search. e.g. "h1.classname"
+    * - familyTagName: the parent or child tag to be searched. e.g. "a"
+    *                   if familyTagName == null then the attr field will be extracted from docSelect tag
+    * - familyClassName: the parent or child css class name to be searched. e.g. "classname"
+    *                   if familyClassName == null then the attr field will be extracted from the first encountered parent/child tag {docSelect if familyTagName == null else familyTagName}
+    * - attr: the attribute to be extracted. Can be text for the simple text or an attribute of the tag. e.g. "href" if tag == "a"
+    *
+    * Examples: 
+    *   1. object.addField("Title", "h2.title", null, null, "text");
+    *   2. object.addField("Link", "h5", "a", "link-class", "href");
+     */
     public void addField(String fieldName, String docSelect, String familyTagName, String familyClassName, String attr) {
+        if(attr == null) attr = "text";
         fields.add(new HTMLField(fieldName, docSelect, familyTagName, familyClassName, attr));
     }
 

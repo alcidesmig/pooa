@@ -10,11 +10,11 @@ public abstract class Extractor {
     final String website;
     Connection connection;
 
-
     public Extractor(String website) {
         this.website = website;
         this.connection = Jsoup.connect(this.website);
     }
     
+    /* scrapy method to override */
     public abstract <T> List<T> scrapy();
 }

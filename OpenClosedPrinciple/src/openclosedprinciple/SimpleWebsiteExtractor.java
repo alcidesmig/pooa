@@ -25,7 +25,7 @@ public class SimpleWebsiteExtractor extends Extractor {
     *                   if familyTagName == null then the attr field will be extracted from docSelect tag
     * - familyClassName: the parent or child css class name to be searched. e.g. "classname"
     *                   if familyClassName == null then the attr field will be extracted from the first encountered parent/child tag {docSelect if familyTagName == null else familyTagName}
-    * - attr: the attribute to be extracted. Can be text for the simple text or an attribute of the tag. e.g. "href" if tag == "a"
+    * - attr: the attribute to be extracted. Can be "text" for the simple text or an attribute of the tag. e.g. "href" if tag == "a".
     *
     * Examples: 
     *   1. object.addField("Title", "h2.title", null, null, "text");
@@ -47,14 +47,21 @@ public class SimpleWebsiteExtractor extends Extractor {
         return fieldNames;
     }
 
+    /*
+    * Implements scrapy function
+    * Logic: for each field if parent/child != null go up searching until find and go down searching until find
+    *                       else return attr of the field
+    * */
     @Override
     public List<List<String>> scrapy() {
         try {
             List<List<String>> result = new ArrayList<>();
+            // for each field
             for (HTMLField field : fields) {
                 List<String> currentField = new ArrayList<>();
                 Document doc = (Document) connection.get();
                 Elements current = doc.select(field.getDocSelect());
+                // if parent/child == null get the attribute of the docSelect tag
                 if (field.getFamilyTagName() == null) {
                     current.forEach(element -> {
                         if (field.getAttr().equals("text")) {
@@ -67,11 +74,13 @@ public class SimpleWebsiteExtractor extends Extractor {
                     current.forEach((var element) -> {
                         Element found = null;
                         Element parent = element.parent();
+                        // search for the tag as a parent until find or pass all the tree
                         while (parent != null && !parent.tagName().equals(field.getFamilyTagName())
                                 && (!parent.classNames().contains(field.getFamilyClassName())
                                 || field.getFamilyClassName() == null)) {
                             parent = parent.parent();
                         }
+                        // search for the tag as a child until find or pass all the tree
                         if (parent == null || (!parent.tagName().equals(field.getFamilyTagName())
                                 && (!parent.classNames().contains(field.getFamilyClassName())))) {
                             Elements children = element.children();

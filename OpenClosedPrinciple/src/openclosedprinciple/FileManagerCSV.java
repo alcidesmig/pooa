@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 
 public class FileManagerCSV extends OutputManager {
 
-    List<List<String>> text;
-    List<String> header;
-    char sep;
+    private List<List<String>> text;
+    private List<String> header;
+    private char sep;
 
     public FileManagerCSV(String fileName,
             List<List<String>> text,

@@ -15,10 +15,13 @@ public abstract class OutputManager {
         this.fileName = fileName;
         this.writer = new PrintWriter(new FileWriter(new File(fileName)));
     }
-
+    
+    /* process method to override */
     public abstract <T> List<T> process(List<T> data);
     
+    /* write method to override */
     public abstract void write();
 
+    /* clear file method to override */
     public abstract void clearFile();
 }

@@ -3,7 +3,6 @@ package openclosedprinciple;
 public class HTMLField {
 
     private final String fieldName;
-
     private final String docSelect;
     private final String familyTagName;
     private final String familyClassName;

@@ -115,7 +115,6 @@ public class SimpleWebsiteExtractor extends Extractor {
             for (int i = 0; i < result.get(0).size(); i++) {
                 List<String> aux = new ArrayList<>();
                 for (int j = 0; j < result.size(); j++) {
-                    System.out.println(result.toString());
                     aux.add(result.get(j).get(i));
                 }
                 toReturn.add(aux);

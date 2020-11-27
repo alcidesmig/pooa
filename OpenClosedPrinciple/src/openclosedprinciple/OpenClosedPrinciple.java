@@ -1,14 +1,22 @@
 package openclosedprinciple;
 
 import java.io.IOException;
-import java.util.List;
 
 public class OpenClosedPrinciple {
 
     public static void main(String[] args) throws IOException {
+        getAndWriteG1Data();
         getAndWriteUolData();
         getAndWriteEstadaoData();
         getAndWritePelandoData();
+    }
+
+    public static void getAndWriteG1Data() throws IOException {
+        SimpleWebsiteExtractor g1 = new SimpleWebsiteExtractor("https://g1.globo.com/");
+        g1.addField("Titulo", "a.feed-post-link", null, null, "text");
+        g1.addField("Link", "a.feed-post-link", null, null, "href");
+        FileManagerCSV output = new FileManagerCSV("g1.csv", g1.scrapy(), g1.listFieldsNames(), ';');
+        output.write();
     }
 
     public static void getAndWriteUolData() throws IOException {
@@ -32,7 +40,6 @@ public class OpenClosedPrinciple {
         pelando.addField("Produto", "a.thread-title--list", null, null, "title");
         pelando.addField("Link", "a.thread-title--list", null, null, "href");
         pelando.addField("Autor", "span.thread-username", null, null, "text");
-        System.out.println(pelando.scrapy().toString());
         FileManagerCSV output = new FileManagerCSV("pelando.csv", pelando.scrapy(), pelando.listFieldsNames(), ';');
         output.write();
     }

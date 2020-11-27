@@ -33,6 +33,7 @@ public class FileManagerCSV extends OutputManager {
             writer.write(String.join(String.valueOf(sep), list));
             writer.write("\n");
         });
+        writer.flush();
     }
 
     @Override

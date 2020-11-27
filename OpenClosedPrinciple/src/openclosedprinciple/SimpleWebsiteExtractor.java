@@ -61,6 +61,7 @@ public class SimpleWebsiteExtractor extends Extractor {
                 List<String> currentField = new ArrayList<>();
                 Document doc = (Document) connection.get();
                 Elements current = doc.select(field.getDocSelect());
+                // System.out.println(current.toString());
                 // if parent/child == null get the attribute of the docSelect tag
                 if (field.getFamilyTagName() == null) {
                     current.forEach(element -> {
@@ -108,7 +109,18 @@ public class SimpleWebsiteExtractor extends Extractor {
                 }
                 result.add(currentField);
             }
-            return result;
+
+            // convert the data to the default format (teacher)
+            List<List<String>> toReturn = new ArrayList<>();
+            for (int i = 0; i < result.get(0).size(); i++) {
+                List<String> aux = new ArrayList<>();
+                for (int j = 0; j < result.size(); j++) {
+                    System.out.println(result.toString());
+                    aux.add(result.get(j).get(i));
+                }
+                toReturn.add(aux);
+            }
+            return toReturn;
         } catch (IOException e) {
             return null;
         }

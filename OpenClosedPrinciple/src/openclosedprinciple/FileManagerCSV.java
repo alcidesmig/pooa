@@ -48,6 +48,7 @@ public class FileManagerCSV extends OutputManager {
 
     @Override
     public <T> List<T> process(List<T> data) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        // implementation of process
+        return null;
     }
 }

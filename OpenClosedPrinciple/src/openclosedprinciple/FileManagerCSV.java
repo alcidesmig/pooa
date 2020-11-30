@@ -49,7 +49,7 @@ public class FileManagerCSV extends OutputManager {
     @Override
     public <T> List<T> process(List<T> data) {
         // ATTENTION: breaks liskov's principle, next theme
-        // possible solve: create two classes, one to write and one to process
+        // possible solve: create two classes, one to write and one to process rather than OutputManager (and use them to apply inheritance)
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 }

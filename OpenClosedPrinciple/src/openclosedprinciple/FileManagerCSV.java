@@ -48,7 +48,8 @@ public class FileManagerCSV extends OutputManager {
 
     @Override
     public <T> List<T> process(List<T> data) {
-        // implementation of process
-        return null;
+        // ATTENTION: breaks liskov's principle, next theme
+        // possible solve: create two classes, one to write and one to process
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 }
